@@ -56,5 +56,11 @@ router.get('/tasks', (req, res) => {
 // create task for a user
 // routes/users.js
 router.post('/tasks', (req, res) => {
-  const task = new Task({ ...req.body, userId:
-//--------------------------------------------continue here
+  const task = new Task({ ...req.body, userId:req.decoded.id });
+  task.save((err, task) => {
+  if (err) {
+  return res.status(500).json({ message: 'Error creating task' });
+  }
+  return res.status(201).json({ task });
+  });
+  });

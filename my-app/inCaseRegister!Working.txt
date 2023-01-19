@@ -1,0 +1,38 @@
+/register route, where you're not able to register a user properly.
+
+To start, you will need to add a debugger statement in the relevant part of your code,
+in this case,
+it would be inside the callback function of the user.save method.
+
+can do this:
+
+ router.post('/register', (req, res) => {
+  const user = new User(req.body);
+  user.save((err, user) => {
+    debugger;
+    if (err) {
+      return res.status(500).json({ message: 'Error registering user' });
+    }
+    const token = authHelper.generateToken(user);
+    return res.status(200).json({ message: 'User registered successfully', token });
+  });
+});
+
+
+Next, you will need to start your application in debugging mode, 
+you can do this by running the command node inspect app.js
+
+Once your application is running in debugging mode, 
+you can use the command c to continue execution until the next breakpoint 
+(in this case, the debugger statement in your code).
+
+You can then use the command repl to access the current context of your application, 
+where you can inspect variables and see the values. For example, 
+you can use console.log(err) to see the error message, 
+or console.log(req.body) to see the request body.
+
+You can also use the command n to step over the next line of code, 
+and the command s to step into the next function call.
+
+Once you have identified the issue, 
+you can make the necessary changes to your code and test it again.

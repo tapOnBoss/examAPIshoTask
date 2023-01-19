@@ -1,7 +1,10 @@
-web: node app.js
+// this is a comand for teminal to allow DevOps functions
+// this is step1 for Dev ops app Scaling          web: node app.js
+// this is step2 for DevOps scalability           npm install -g pm2
+// this is step3 to enable DevOps user scaling    pm2 start app.js
 
-npm install -g pm2
-pm2 start app.js
-// will also need to configure environment variables on the server to keep sensitive information like secret keys and database credentials secure.
-
-// You will also need to set up a process to handle the automatic deployment when you push your changes to the repository, you can use services like Travis or CircleCI to automate the deployment process.
+// will also need to configure environment variables on the server
+// to keep sensitive information like secret keys and database credentials secure.
+// You will also need to set up a process to handle the automatic deployment
+// when you push your changes to the repository, 
+// you can use services like Travis or CircleCI to automate the deployment process.
