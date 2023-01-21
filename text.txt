@@ -1,0 +1,191 @@
+functionality list:
+
+API routes that correspond to the functionality needed for the image.
+
+Data for the user's ID, name, last name, email, password, and time of registration.
+
+MongoDB database is connected to it from the application.
+
+CRUD methods for the user data and add extra authentication using tokens.
+
+In the MongoDB database, 
+create a collection for storing task data, 
+including:  
+User ID, 
+Task ID, 
+Description, 
+Timestamps, 
+Status.
+(all list items are noncaps in code)
+
+Create two lists in the application, 
+one for tasks that have been completed and one for tasks that are still to be done, 
+and link them to the appropriate user IDs.
+
+Have token-based authentication to ensure that only authorized users can access the task data.
+
+Use the task data to create a table in the application that displays the task information, 
+including:
+user ID, 
+task ID, 
+description, 
+timestamps,
+status.
+
+Handle user authentication when a user attempts to login.
+Uses the email and password provided by the user 
+to look up their account in the database, 
+and then use jsonwebtoken to generate a token 
+that can be used for authentication on protected routes.
+
+Improved the security, 
+Hash the user's password before storing it in the database,
+Using a package bcrypt to compare the hashed password when the user attempts to login.
+Included additional security measures like rate limiting, CORS headers, 
+and input validation to protect your application from common attacks.
+
+Have error handling throughout your application, 
+so that users are provided with clear and informative error messages when something goes wrong.
+
+Can test application, 
+Using a library like Mocha or Jest,
+test the routes, 
+models, 
+helper
+(functions).
+
+There is Separate environment variable file
+Storing the sensitive data like secret keys, 
+database urls and any other information that should not be exposed in the codebase.
+
+Caching mechanism in your application. 
+Caching can help to improve the performance of your application 
+by storing the frequently requested data in a faster storage layer, 
+like memory, 
+and reducing the number of requests to the database or other external services.
+Redis (Memcached) to implement caching in your application.
+
+Pagination in application handles large datasets,
+Reduces the amount of data that is sent to the client at once. 
+This can improve the performance of your application, 
+especially when handling large collections of data like tasks.
+
+Helmet package to set some HTTP headers 
+Protect app from some well-known web vulnerabilities.
+
+Feature of task search, where users can search for tasks by keywords, description, and date range.
+
+Feature of task notifications, 
+Where users can receive notifications about tasks that are due soon, 
+Or when a task has been completed.
+
+pplication grows, the number of requests and data it handles can increase significantly. 
+To handle this, Using a load balancer:
+HAProxy
+(or Nginx)
+To distribute the incoming requests across multiple servers and improve the overall performance,
+Responsiveness.
+
+Using a microservices architecture to break down your application into smaller, 
+more manageable services. 
+This can help to improve the scalability,
+reliability, 
+and maintainability of your application.
+
+Using a monitoring tool like Prometheus 
+or New Relic to track the performance of your application,
+detect and diagnose issues.
+
+Feature of task collaboration, 
+where multiple users can work on a task together, and share comments and updates.
+
+feature of task recurring, 
+where a task can be set to repeat on a regular basis, 
+such as daily, 
+weekly, or monthly.
+
+Consider is performance optimization, 
+as application grows, 
+the number of requests and data it handles can increase significantly. 
+To handle this, 
+you can use a package like gzip to compress the data that is sent to the client, 
+this will help to reduce the amount of data that needs to be transferred and improve the overall performance
+
+Using a package compression to compress the data that is sent to the client, 
+this will help to reduce the amount of data that needs to be transferred and improve the overall performance of your application.
+
+Considered data backup, 
+you can use a package like mongodump to create backups of your MongoDB database, 
+and schedule regular backups to ensure that your data is safe and can be easily restored in case of a disaster.
+You can also consider implementing a feature of task history.
+
+Considered implementing a feature of task history, where users can view a history 
+of the tasks they have completed and the tasks they are currently working on.
+
+Consider implementing a feature of task export, where users can export their tasks in different file formats, s
+uch as CSV, 
+Excel,
+PDF.
+
+Considered is internationalization (i18n), 
+this means that your application should be able to support multiple languages, 
+so that users can interact with your application in their preferred language. 
+You can use a package like i18next to handle the translations and localization of your application.
+
+Handle the date and time formatting, 
+this will help to ensure that the date and time are displayed correctly for users in different regions 
+and time zones.
+
+error tracking,
+Using a package like Sentry to track the errors and exceptions in your application, 
+and receive notifications when an error occurs. 
+This will help you to identify and fix issues quickly.
+
+Application should be accessible to users with disabilities, 
+Using a package a11y to check your application for accessibility issues, 
+and make sure that it's easy to use for everyone.
+
+Consider implementing a feature of task categorization, 
+where users can categorize their tasks by different types, 
+such as work, personal, and shopping.
+
+Considered implementing a feature of task attachments, 
+where users can attach:
+files,
+images, 
+documents 
+(to their tasks).
+
+---------------features on update LISTED below------------------------------------
+
+Configure environment variables on the server to keep sensitive information 
+like secret keys and database credentials secure.
+
+    Internationalization (i18n) support: You can add support for multiple languages in your application by using a library like i18n.
+
+    Unit testing: You can write unit tests for your code using a library like Jest or Mocha. Unit testing helps you catch bugs and ensure that your code is working as expected.
+
+    Documenting: You can use a library like JSDoc or Swagger to automatically generate documentation for your code, making it easy for others to understand and use.
+
+    Accessibility: You can add accessibility features to your application to make it usable for users with disabilities.
+
+    Performance: You can improve the performance of your application by optimizing the code and using techniques like caching and code splitting.
+
+    Monitoring: You can add monitoring tools to your application to track performance and errors, like Prometheus and Grafana, New Relic, or Datadog.
+
+    Deployment: You can use a continuous integration and continuous deployment (CI/CD) pipeline to automate the process of building, testing, and deploying your code.
+-------------------------------------------------------------------------------------
+For the front-end, 
+Can use a framework like React or Angular to create the UI and interact with the API. 
+Will need to create endpoints in the API
+To handle the requests and responses between the front-end and the back-end.
+
+Can track the activity and detect errors or potential issues. 
+You can use a package like Winston to log messages, 
+and configure it to write to different transports like a file or a remote service:
+Loggly,
+Papertrail.
+
+Once your application is complete and tested, 
+you can deploy it to a hosting service like Heroku or AWS, 
+so that it can be accessed by users from anywhere.

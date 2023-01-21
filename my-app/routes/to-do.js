@@ -79,3 +79,91 @@ app.listen(3000, () => {
 });
 
 
+const express = require('express');
+const ToDo = require('../models/to-do');
+
+// GET /to-do - list all to-dos
+router.get('/to-do', (req, res) => {
+  // ...
+});
+
+// POST /to-do - create a new to-do
+router.post('/to-do', (req, res) => {
+  // ...
+});
+
+// GET /to-do/:id - fetch a specific to-do
+router.get('/to-do/:id', (req, res) => {
+  // ...
+});
+
+// PUT /to-do/:id - edit existing to-do
+router.put('/to-do/:id', (req, res) => {
+  // ...
+});
+
+// PATCH /to-do/:id - mark an existing to-do as complete
+router.patch('/to-do/:id', (req, res) => {
+  // ...
+});
+
+// DELETE /to-do/:id - delete existing to-do
+router.delete('/to-do/:id', (req, res) => {
+  // ...
+});
+
+module.exports = router;
+
+// routes/to-do.js
+const validate = require('../middleware/validation');
+const toDoSchema = Joi.object({
+  title: Joi.string().min(3).required(),
+  description: Joi.string().min(10).required(),
+});
+
+router.post('/to-do', validate(toDoSchema), async (req, res) => {
+  // create a new to-do
+});
+
+
+// routes/to-do.js
+const checkAuth = require('../middleware/authentication');
+
+router.post('/to-do', checkAuth, async (req, res) => {
+  // create a new to-do
+});
+
+
+// routes/to-do.js
+const caching = require('../middleware/caching');
+
+router.get('/to-do', caching(10), async (req, res) => {
+  // get all to-dos
+});
+
+
+// routes/to-do.js
+router.get('/to-do', async (req, res) => {
+  // pagination 
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  const data = await ToDo.find().skip((page - 1) * limit).limit(limit);
+  res.send(data);
+});
+router.get('/to-do', async (req, res) => {
+  // filtering
+  const data = await ToDo.find({ status: req.query.status });
+  res.send(data);
+});
+
+// routes/to-do.js
+const upload = require('../middleware/multer');
+
+router.post('/to-do/upload', upload.single('file'), async (req, res) => {
+  // handle file upload
+});
+
+// routes/to-do.js
+router.get('/to-do', async (req, res) => {
+  res.send({ message: req.__('Welcome to the to-do app') });
+});

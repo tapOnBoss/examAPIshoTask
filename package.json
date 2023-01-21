@@ -17,3 +17,12 @@
     "mongoose": "^6.8.4"
   }
 }
+
+/** Documentation
+ * @route POST /to-do
+ * @group To-do - Operations about to-do
+ * @param {string} title.body.required - The title of the to-do
+ * @param {string} description.body.required - The description of the to-do
+ * @returns {object} 201 - To-do created
+ * @returns {Error}  default - Unexpected error
+ */
